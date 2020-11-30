@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMu : MonoBehaviour
+public class PlayerMuvement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed = .5f;
+    public Rigidbody2D PlayerRB;
+    // esto es para conseguir el componente de un objeto en este caso el rigid budy
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        PlayerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, PlayerRB.velocity.y );
+        //esto es para controlar la velocidad del personaje
     }
 }
