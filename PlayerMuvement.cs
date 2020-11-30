@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerMuvement : MonoBehaviour
 {
-    public float speed = .5f;
-    public Rigidbody2D PlayerRB;
+    // serializefield hace que la variable sea visible en eleditor pero es privada
+    [SerializeField] private float JumpSpeed = 300;
+    [SerializeField] private float speed = 4;
+    [SerializeField] private Rigidbody2D PlayerRB;
     // esto es para conseguir el componente de un objeto en este caso el rigid budy
 
     void Start()
@@ -18,5 +20,13 @@ public class PlayerMuvement : MonoBehaviour
     {
         PlayerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, PlayerRB.velocity.y );
         //esto es para controlar la velocidad del personaje
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        // key code es para buscar el mapeo de las teclas y agregar un salto a mi personaje
+        {
+            PlayerRB.AddForce(Vector2.up * JumpSpeed);
+
+
+        }
     }
 }
