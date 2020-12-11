@@ -19,7 +19,7 @@ public class PlayerMuvement : MonoBehaviour
     void Update()
     {
         PlayerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, PlayerRB.velocity.y );
-        //esto es para controlar la velocidad del personaje
+        //esto es para controlar la velocidad del personaje el get axis es el mapeo de las teclas 
 
         if (Input.GetKeyDown(KeyCode.Space))
         // key code es para buscar el mapeo de las teclas y agregar un salto a mi personaje
